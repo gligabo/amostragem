@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Descrição dos Planos Amostrais}
+\author{Gabriel Ligabo Baba}
+\date{Maio de 2025}
+\DeclareMathOperator{\E}{\mathbb{E}}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Planos Amostrais Adotados}
+
+Neste trabalho, serão utilizados dois planos amostrais distintos: a Amostragem Aleatória Simples sem Reposição (AASs) e a Amostragem Estratificada Proporcional (AEpr) via AASs.
+A escolha dos planos se dá em função do nível geográfico analisado (estado, região, Brasil) e do cargo político (governador, senador e presidente).
+
+\subsection*{Amostragem Aleatória Simples sem Reposição (AASs)}
+
+A AASs consiste em sortear, de forma aleatória e sem reposição, unidades da população $\mathcal{U} = \{1, 2, ..., N\}$, de modo que cada subconjunto de tamanho $n$ possui a mesma probabilidade de ser escolhido. 
+
+Este plano será utilizado para a seleção de eleitores em pesquisas referentes ao cargo de governador e senador, nos estados do Amazonas (AM) e Roraima (RR). 
+A escolha desse plano se justifica pela homogeneidade relativa das populações nesses estados e pela simplicidade operacional da técnica.
+
+\subsubsection*{Estimador da Proporção}
+
+Como o objetivo da pesquisa é estimar a proporção de eleitores favoráveis a um determinado candidato "X", o estimador pontual da proporção populacional é dado por:
+
+\[
+\hat{P} = \frac{m}{n}
+\]
+
+em que:
+\begin{itemize}
+    \item $m$: número de respondentes que indicaram intenção de voto no candidato "X";
+    \item $n$: tamanho da amostra.
+\end{itemize}
+
+Este estimador é não viciado, como pode ser demonstrado pela esperança:
+
+\[
+\E[\hat{P}] = \E\left[\frac{1}{n}\sum_{i \in \mathbf{s}} Y_i\right] = \frac{1}{n} \sum_{i \in \mathbf{s}} \E[Y_i] = P
+\]
+
+\subsubsection*{Variância do Estimador}
+
+A variância da estimativa da proporção, assumindo amostragem sem reposição, é dada por:
+
+\[
+Var(\hat{P}) = \left(1 - \frac{n}{N}\right) \cdot \frac{P(1 - P)}{n} = \frac{N - n}{N - 1} \cdot \frac{PQ}{n}
+\]
+
+Como o valor real de $P$ é desconhecido, utilizamos a estimativa da variância:
+
+\[
+\widehat{Var}(\hat{P}) = \left(1 - \frac{n}{N} \right) \cdot \frac{\hat{P}(1 - \hat{P})}{n - 1}
+\]
+
+Este plano será aplicado com tamanhos amostrais definidos por:
+
+\[
+n_{AM}, n_{RR} \text{ para governador e senador}
+\]
+
+Os valores de $n$ serão determinados posteriormente com base na margem de erro de $2\%$ e nível de confiança de $95\%$, conforme descrito na seção de metodologia.
+
+\subsection*{Amostragem Estratificada com Proporcionalidade (AEpr)}
+
+Será adotado o plano AEpr com base em AASs para as pesquisas relacionadas ao cargo de presidente da república, considerando as análises por região e por país. A estratificação será realizada com base nos estados que compõem a região Norte, mantendo a proporcionalidade de suas populações eleitorais na seleção amostral.
+
+A descrição formal do plano AEpr, juntamente com o cálculo dos pesos e alocação proporcional, será apresentada na seção metodológica.
+
+\section{Cálculos de tamanho de amostra}
+
+\end{document}
