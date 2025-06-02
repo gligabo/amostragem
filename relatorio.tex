@@ -13,7 +13,7 @@
 
 \maketitle
 
-\section*{1. Planos Amostrais Adotados}
+\section*{Planos Amostrais Adotados}
 
 Neste trabalho, serão utilizados dois planos amostrais distintos: a Amostragem Aleatória Simples sem Reposição (AASs) e a Amostragem Estratificada Proporcional (AEpr) via AASs.
 A escolha dos planos se dá em função do nível geográfico analisado (estado, região, Brasil) e do cargo político (governador, senador e presidente).
@@ -56,7 +56,7 @@ Var(\hat{P}) = \left(1 - \frac{n}{N}\right) \cdot \frac{P(1 - P)}{n} = \frac{N -
 Como o valor real de $P$ é desconhecido, utilizamos a estimativa da variância:
 
 \[
-\widehat{Var}(\hat{P}) = \left(1 - \frac{n}{N} \right) \cdot \frac{\hat{P}(1 - \hat{P})}{n - 1}
+var(\hat{P}) = \left(1 - \frac{n}{N} \right) \cdot \frac{p(1 - p)}{n - 1}
 \]
 
 Este plano será aplicado com tamanhos amostrais definidos por:
@@ -67,12 +67,175 @@ n_{AM}, n_{RR} \text{ para governador e senador}
 
 Os valores de $n$ serão determinados posteriormente com base na margem de erro de $2\%$ e nível de confiança de $95\%$.
 
-\subsection*{Amostragem Estratificada com Proporcionalidade (AEpr)}
+\subsection*{Amostragem Estratificada com Alocação Proporcional (AEpr)}
 
 Será adotado o plano AEpr com base em AASs para as pesquisas relacionadas ao cargo de presidente da república, considerando as análises por região e por país. A estratificação será realizada com base nos estados que compõem a região Norte, mantendo a proporcionalidade de suas populações eleitorais na seleção amostral.
 
-\subsubsection*{Estimador }
+\subsubsection*{Estimador da proporção}
+É importante ressaltar que, nesse plano amostral, o tamanho dos estratos é dado por:
+\[
+n_h = nW_h = n\frac{N_h}{N}
+\]
+Dito isso, podemos prosseguir para o estimador da proporção:
+\[
+p_{es} = \sum_{h=1}^H W_h p_h = \sum_{h=1}^H \frac{N_h}{N}p_h
+\], onde $p_h$ é o estimador da proporção no estrato h.
 
-\section{Cálculos de tamanho de amostra}
+\[
+p_h = \frac{m_h}{n_h}
+\]
 
+em que:
+\begin{itemize}
+    \item $m$: número de respondentes que indicaram intenção de voto no candidato "X" no estrato h;
+    \item $n$: tamanho da amostra no estrato h.
+\end{itemize}
+
+\subsection*{Variância da proporção}
+A variância da estimativa da proporção, assumindo amostragem proporcional com amostragem aleatória simples sem reposição é dada por:
+\[
+Var(p_{es}) = Var(\sum_{h = 1}^{H}W_h p_h) = \sum_{h = 1}^{H}W_h ^ 2 Var(p_h)
+\], onde:
+
+\[
+Var(p_h) = \frac{N-n}{N-1}\frac{PQ}{n}
+\]
+
+No geral, o verdadeiro valor de P é desconhecido. Então, utilizamos a estimativa da variância:
+
+\[
+var(p_{es}) = var(\sum_{h = 1}^{H}W_h p_h) = \sum_{h = 1}^{H}W_h ^ 2 var(p_h)
+\], onde:
+
+\[
+var(p_h) = (1-f)\frac{pq}{n-1}
+\]
+
+
+\section*{Cálculos de tamanho de amostra}
+Com a teoria descrita na seção anterior, podemos prosseguir com os cálculos de tamanho de amostra para
+cada um dos casos de interesse.
+
+\subsection*{Governador e senador}
+
+Fixando um erro de 2 pontos percentuais e uma confiança de 95\% ($\alpha = 0.05$), considerando AASs, temos que:
+
+\[
+\begin{array}{l}
+P\left( \left| \frac{p - P}{\sqrt{ \left( \frac{N - n}{N - 1} \right) \cdot \frac{PQ}{n} }} \right| \leq z_{\alpha/2} \right) = 0{,}95 \text{ com isso,}\\ 
+P\left( \left| p - P \right| \leq B \right)
+\end{array}
+\]
+
+Onde:
+\begin{itemize}
+    \item $z_{\alpha/2} = 1.96$
+    \item $B = z_{\alpha/2}\sqrt{\frac{N-n}{N-1}\frac{PQ}{n}} = 0.02$
+\end{itemize}
+
+Realizando as contas considerando o caso conservativo, isto é $P(1-P) = \frac{1}{4}$, chegamos na seguinte expressão:
+\[
+n = \frac{N}{4(N-1)(\frac{B}{z_{\alpha/2}}^2) + 1}
+\]
+\subsubsection*{Primeiro turno}
+\[
+n_{AM} = \frac{N_{AM}}{4(N_{AM}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{2110875}{4(2110875 - 1) (\frac{0.02}{1.96}^2) + 1} = 2398.2732 = 2399
+\]
+
+\[
+n_{RR} = \frac{N_{RR}}{4(N_{RR}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{304319}{4(304319-1)(\frac{0.02}{1.96})^2 + 1} = 2382.2127 = 2383
+\]
+
+\subsubsection*{Segundo turno}
+
+\[
+n_{AM} = \frac{N_{AM}}{4(N_{AM}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{2065079}{4(2065079 - 1) (\frac{0.02}{1.96}^2) + 1} = 2398.2128 = 2399
+\]
+
+\subsection*{Presidente}
+Para presidente, temos que separar em duas categorias : 
+\begin{itemize}
+    \item Estratos dentro de uma região do país (norte);
+    \item Estratos por estado do país.
+\end{itemize}
+
+Além disso, temos que separar o cálculo do tamanho do amostra em duas etapas:
+\begin{itemize}
+    \item Cálculo do tamanho da amostra considerando AASs para cada um dos casos;
+    \item Cálculo do tamanho da amostra por estrato considerando AEpr.
+\end{itemize}
+
+\subsubsection*{AASs} 
+Nessa etapa, temos a mesma teoria dos cálculos para governador e senador. Fixando um erro de 2 pontos percentuais e uma confiança de 95\% ($\alpha = 0.05$):
+\[
+\begin{array}{l}
+P\left( \left| \frac{p - P}{\sqrt{ \left( \frac{N - n}{N - 1} \right) \cdot \frac{PQ}{n} }} \right| \leq z_{\alpha/2} \right) = 0{,}95 \text{ com isso,}\\ 
+P\left( \left| p - P \right| \leq B \right)
+\end{array}
+\]
+Onde:
+\begin{itemize}
+    \item $z_{\alpha/2} = 1.96$
+    \item $B = z_{\alpha/2}\sqrt{\frac{N-n}{N-1}\frac{PQ}{n}} = 0.02$
+\end{itemize}
+
+Assim, podemos calcular o tamanho da amostra considerando a estratificação da por região e por país
+\newpage
+\textbf{Por região:}
+
+Primeiro turno
+\[
+n_{NO} = \frac{N_{NO}}{4(N_{NO}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{9925507}{4(9925507 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.4196 = 2401
+\]
+
+Segundo turno:
+\[
+n_{NO} = \frac{N_{NO}}{4(N_{NO}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{9675082}{4(9675082 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.4045 = 2401
+\]
+\textbf{Pelo país:}
+
+Primeiro turno
+\[
+n_{BR} = \frac{N_{BR}}{4(N_{BR}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{123682372}{4(123682372 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.9534 = 2401
+\]
+
+Segundo turno
+
+\[
+n_{BR} = \frac{N_{BR}}{4(N_{BR}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{124252796}{4(124252796 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.9536 = 2401
+\]
+
+\subsubsection*{AEpr}
+
+Agora, podemos utilizar a alocação proporcional para ambos os casos
+
+\textbf{Por região:}
+
+\[
+n_{AC} = n_{NO}\frac{N_{AC}}{N_{BR}}
+\]
+
+\[
+n_{RO} = n_{NO}\frac{N_{RO}}{N_{BR}}
+\]
+
+\[
+n_{AM} = n_{NO}\frac{N_{AM}}{N_{BR}}
+\]
+
+\[
+n_{RR} = n_{NO}\frac{N_{RR}}{N_{BR}}
+\]
+
+\[
+n_{AP} = n_{NO}\frac{N_{AP}}{N_{BR}}
+\]
+
+\[
+n_{PA} = n_{NO}\frac{N_{PA}}{N_{BR}}
+\]
+
+\[
+n_{TO} = n_{NO}\frac{N_{TO}}{N_{BR}}
+\]
 \end{document}
