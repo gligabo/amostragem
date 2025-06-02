@@ -30,7 +30,7 @@ A escolha desse plano se justifica pela homogeneidade relativa das populações 
 Como o objetivo da pesquisa é estimar a proporção de eleitores favoráveis a um determinado candidato "X", o estimador pontual da proporção populacional é dado por:
 
 \[
-\hat{P} = \frac{m}{n}
+\hat{P} = p = \frac{m}{n}
 \]
 
 em que:
@@ -211,31 +211,84 @@ Agora, podemos utilizar a alocação proporcional para ambos os casos
 
 \textbf{Por região:}
 
+
+O cálculo de tamanho da amostra é dado por:
 \[
-n_{AC} = n_{NO}\frac{N_{AC}}{N_{BR}}
+n_{ESTADO} = n_{NORTE}\frac{N_{ESTADO}}{N_{NORTE}}
 \]
 
+
+\begin{table}[h!]
+\centering
+\caption{Tamanho da Amostra Estratificada (AEpr) -- Regi\~{a}o Norte}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcc}
+\hline
+\textbf{Estado (Norte)} & Primeiro Turno & Segundo Turno \\
+\hline
+Acre (AC) & 111 & 105 \\
+Rond\^onia (RO) & 224 & 229 \\
+Amazonas (AM) & 511 & 513 \\
+Roraima (RR) & 74 & 72 \\
+Amap\'a (AP) & 108 & 100 \\
+Par\'a (PA) & 1158 & 1166 \\
+Tocantins (TO) & 215 & 216 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\newpage
+
+\textbf{Por país}
+
+O cálculo de tamanho da amostra é dado por:
 \[
-n_{RO} = n_{NO}\frac{N_{RO}}{N_{BR}}
+n_{ESTADO} = n_{BRASIL}\frac{N_{ESTADO}}{N_{BRASIL}}
 \]
 
-\[
-n_{AM} = n_{NO}\frac{N_{AM}}{N_{BR}}
-\]
 
-\[
-n_{RR} = n_{NO}\frac{N_{RR}}{N_{BR}}
-\]
 
-\[
-n_{AP} = n_{NO}\frac{N_{AP}}{N_{BR}}
-\]
+\begin{table}[h!]
+\centering
+\caption{Tamanho da Amostra Estratificada (AEpr) -- Total por Pa\'{i}s}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcc}
+\hline
+\textbf{Estado} & Primeiro Turno & Segundo Turno \\
+\hline
+Esp\'irito Santo (ES) & 44 & 45 \\
+Minas Gerais (MG) & 246 & 249 \\
+S\~{a}o Paulo (SP) & 527 & 530 \\
+Rio de Janeiro (RJ) & 193 & 193 \\
+Paran\'a (PR) & 133 & 134 \\
+Rio Grande do Sul (RS) & 133 & 133 \\
+Santa Catarina (SC) & 88 & 88 \\
+Distrito Federal (DF) & 36 & 36 \\
+Goi\'as (GO) & 75 & 75 \\
+Mato Grosso do Sul (MS) & 31 & 29 \\
+Mato Grosso (MT) & 36 & 36 \\
+Alagoas (AL) & 36 & 35 \\
+Bahia (BA) & 173 & 174 \\
+Sergipe (SE) & 27 & 27 \\
+Cear\'a (CE) & 110 & 110 \\
+Maranh\~{a}o (MA) & 77 & 75 \\
+Piau\'i (PI) & 42 & 41 \\
+Para\'iba (PB) & 50 & 50 \\
+Pernambuco (PE) & 112 & 113 \\
+Rio Grande do Norte (RN) & 41 & 41 \\
+Acre (AC) & 8 & 9 \\
+Rond\^onia (RO) & 17 & 17 \\
+Amazonas (AM) & 42 & 39 \\
+Roraima (RR) & 5 & 6 \\
+Amap\'a (AP) & 9 & 8 \\
+Par\'a (PA) & 92 & 91 \\
+Tocantins (TO) & 18 & 17 \\
+\hline
+\end{tabular}
+}
+\end{table}
 
-\[
-n_{PA} = n_{NO}\frac{N_{PA}}{N_{BR}}
-\]
 
-\[
-n_{TO} = n_{NO}\frac{N_{TO}}{N_{BR}}
-\]
+
 \end{document}
