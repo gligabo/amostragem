@@ -3,6 +3,8 @@
 \usepackage{indentfirst}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{float}
+
 
 \title{Descrição dos Planos Amostrais}
 \author{Gabriel Ligabo Baba}
@@ -141,17 +143,17 @@ n = \frac{N}{4(N-1)(\frac{B}{z_{\alpha/2}}^2) + 1}
 \[
 n_{AM} = \frac{N_{AM}}{4(N_{AM}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{2110875}{4(2110875 - 1) (\frac{0.02}{1.96}^2) + 1} = 2398.2732 = 2399
 \]
-
+Amostra gerada com a seed 1
 \[
 n_{RR} = \frac{N_{RR}}{4(N_{RR}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{304319}{4(304319-1)(\frac{0.02}{1.96})^2 + 1} = 2382.2127 = 2383
 \]
-
+Amostra gerada com a seed 2
 \subsubsection*{Segundo turno}
 
 \[
 n_{AM} = \frac{N_{AM}}{4(N_{AM}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{2065079}{4(2065079 - 1) (\frac{0.02}{1.96}^2) + 1} = 2398.2128 = 2399
 \]
-
+Amostra gerada com a seed 3
 \subsection*{Presidente}
 Para presidente, temos que separar em duas categorias : 
 \begin{itemize}
@@ -180,18 +182,20 @@ Onde:
 \end{itemize}
 
 Assim, podemos calcular o tamanho da amostra considerando a estratificação da por região e por país
-\newpage
+
 \textbf{Por região:}
 
 Primeiro turno
 \[
 n_{NO} = \frac{N_{NO}}{4(N_{NO}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{9925507}{4(9925507 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.4196 = 2401
 \]
-
+Amostrada gerada com a seed 4
 Segundo turno:
 \[
 n_{NO} = \frac{N_{NO}}{4(N_{NO}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{9675082}{4(9675082 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.4045 = 2401
 \]
+Amostrada gerada com a seed 5
+
 \textbf{Pelo país:}
 
 Primeiro turno
@@ -199,11 +203,15 @@ Primeiro turno
 n_{BR} = \frac{N_{BR}}{4(N_{BR}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{123682372}{4(123682372 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.9534 = 2401
 \]
 
+Amostrada gerada com a seed 6
+
 Segundo turno
 
 \[
 n_{BR} = \frac{N_{BR}}{4(N_{BR}-1)(\frac{0.02}{1.96}^2) + 1 } = \frac{124252796}{4(124252796 - 1) (\frac{0.02}{1.96}^2) + 1} = 2400.9536 = 2401
 \]
+
+Amostrada gerada com a seed 7
 
 \subsubsection*{AEpr}
 
@@ -213,12 +221,13 @@ Agora, podemos utilizar a alocação proporcional para ambos os casos
 
 
 O cálculo de tamanho da amostra é dado por:
+
 \[
 n_{ESTADO} = n_{NORTE}\frac{N_{ESTADO}}{N_{NORTE}}
 \]
 
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption{Tamanho da Amostra Estratificada (AEpr) -- Regi\~{a}o Norte}
 \resizebox{\textwidth}{!}{
@@ -238,7 +247,9 @@ Tocantins (TO) & 215 & 216 \\
 }
 \end{table}
 
-\newpage
+
+Onde para o primeiro turno, cada uma das amostras foram geradas com as seeds : (8,9,10,11,12,13,14)
+Já no segundo turno, cada uma das amostras foram geradas com as seguintes seeds : (15, 16, 17, 18, 19, 20, 21)
 
 \textbf{Por país}
 
@@ -249,7 +260,7 @@ n_{ESTADO} = n_{BRASIL}\frac{N_{ESTADO}}{N_{BRASIL}}
 
 
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption{Tamanho da Amostra Estratificada (AEpr) -- Total por Pa\'{i}s}
 \resizebox{\textwidth}{!}{
